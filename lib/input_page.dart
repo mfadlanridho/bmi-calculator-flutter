@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'bottom_button.dart';
 
 enum Gender {
   male,
@@ -228,7 +229,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
             onTap: () {
               Navigator.push(
                 context,
@@ -239,19 +240,7 @@ class _InputPageState extends State<InputPage> {
                 ),
               );
             },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE YOUR BMI',
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-              color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              padding: EdgeInsets.only(bottom: 20),
-            ),
+            label: 'CALCULATE YOUR BMI',
           ),
         ],
       ),
