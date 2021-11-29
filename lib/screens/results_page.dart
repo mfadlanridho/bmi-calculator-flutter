@@ -1,9 +1,16 @@
-import 'package:bmi_calculator/bottom_button.dart';
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:bmi_calculator/constants.dart';
-import 'package:bmi_calculator/reusable_card.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsPage extends StatelessWidget {
+  final String bmiNumber, bmiResult, description;
+
+  ResultsPage(
+      {@required this.bmiNumber,
+      @required this.bmiResult,
+      @required this.description});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +37,15 @@ class ResultsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    'OVERWEIGHT',
+                    bmiResult.toUpperCase(),
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '22.1',
+                    bmiNumber,
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'You have a higher result than normal body weight. Try to exercise more.',
+                    description,
                     textAlign: TextAlign.center,
                     style: kDescriptionTextStyle,
                   ),
@@ -48,7 +55,7 @@ class ResultsPage extends StatelessWidget {
           ),
           BottomButton(
             label: 'RECALCULATE YOUR BMI',
-            onTap: () {},
+            onTap: () => Navigator.pop(context),
           ),
         ],
       ),
